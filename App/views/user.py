@@ -28,3 +28,16 @@ def lol():
 @user_views.route('/static/users')
 def static_user_page():
   return send_from_directory('static', 'static-user.html')
+
+@user_views.route('/login', methods=['POST'])
+def login_user():
+    data = request.form
+    create_user(data['username'], data['password'])
+    return data
+
+@user_views.route('/signup', methods=['POST'])
+def signup_user():
+    data = request.form
+    create_user(data['username'], data['password'])
+    return data
+
